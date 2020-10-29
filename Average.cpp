@@ -9,12 +9,11 @@ int GetAverage(std::vector<int> vec) {
 				V[i * (vec.size() + 1) + i + 1] = vec[i];
 			}
 			for (int k = i + 1; k < i + size; ++k) {
-				V[i * (vec.size() + 1) + i + size] = (V[i * (vec.size() + 1) + k] + V[k * (vec.size() + 1) + i + size]) / 2;
 				V[i * (vec.size() + 1) + i + size] = std::max(V[i * (vec.size() + 1) + i + size], (V[i * (vec.size() + 1) + k] + V[k * (vec.size() + 1) + i + size]) / 2);
 			}
 		}
 	}
-	return V[(vec.size() + 1) + vec.size()];
+	return V[vec.size()];
 	
 }
 int main() {
