@@ -1,6 +1,8 @@
-#include <iostream> 
+#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
+
 double GetAverage(const std::vector<int>& vec) {
 	std::vector<double> V((vec.size() - 1) * (vec.size() + 1) + vec.size() + 1, 0);
 	for (int size = 1; size <= vec.size(); ++size) {
@@ -14,7 +16,7 @@ double GetAverage(const std::vector<int>& vec) {
 		}
 	}
 	return V[vec.size()];
-	
+
 }
 int main() {
 	int n;
@@ -26,7 +28,7 @@ int main() {
 		A.push_back(a);
 	}
 	double res = GetAverage(A);
-	std::cout << res;
+	std::cout << std::setprecision(10) << res;
 	return 0;
 }
 
