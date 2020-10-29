@@ -1,7 +1,7 @@
 #include <iostream> 
 #include <vector>
 #include <algorithm>
-int GetAverage(const std::vector<int>& vec) {
+double GetAverage(const std::vector<int>& vec) {
 	std::vector<int> V((vec.size() - 1) * (vec.size() + 1) + vec.size() + 1, 0);
 	for (int size = 1; size <= vec.size(); ++size) {
 		for (int i = 0; i <= vec.size() - size; ++i) {
@@ -25,7 +25,7 @@ int main() {
 		std::cin >> a;
 		A.push_back(a);
 	}
-	int res = GetAverage(A);
+	double res = GetAverage(A);
 	std::cout << res;
 	return 0;
 }
