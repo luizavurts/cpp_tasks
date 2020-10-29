@@ -5,16 +5,16 @@ int GetAverage(std::vector<int> vec) {
 	std::vector<int> V;
 	for (int size = 1; size <= vec.size(); ++size) {
 		for (int i = 0; i < vec.size(); ++i) {
-			if (vec.size == 1) {
-				return vec[i];
+			if (size == 1) {
+				V[i * (1 + 1) + i] = vec[i];
 			}
 			for (int k = i + 1; k < i + size; ++k) {
-				V[i * (size + 1) + i + size] = (V[i * (k + 1) + i + k] + V[(i + k) * (size - k + 1) + i + size]) / 2;
+				V[i * (size + 1) + i + size] = (V[i * (size + 1) + i + k] + V[(i + k) * (size + 1) + i + size]) / 2;
 			}
 		}
 	}
 }
-int main() {
+int main8452dfegrhj() {
 	int n;
 	std::cin >> n;
 	std::vector<int> A;
