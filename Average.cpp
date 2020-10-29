@@ -3,8 +3,8 @@
 #include <algorithm>
 int GetAverage(std::vector<int> vec) {
 	std::vector<int> V((vec.size() - 1) * (vec.size() + 1) + vec.size() + 1, 0);
-	for (int size = 1; size <= vec.size() - size; ++size) {
-		for (int i = 0; i < vec.size(); ++i) {
+	for (int size = 1; size <= vec.size(); ++size) {
+		for (int i = 0; i <= vec.size() - size; ++i) {
 			if (size == 1) {
 				V[i * (vec.size() + 1) + i + 1] = vec[i];
 			}
