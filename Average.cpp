@@ -1,20 +1,23 @@
 #include <iostream> 
 #include <vector>
-
+#include <algorithm>
 int GetAverage(std::vector<int> vec) {
-	std::vector<int> V;
-	for (int size = 1; size <= vec.size(); ++size) {
+	std::vector<int> V((vec.size() - 1) * (vec.size() + 1) + vec.size() + 1, 0);
+	for (int size = 1; size <= vec.size() - size; ++size) {
 		for (int i = 0; i < vec.size(); ++i) {
 			if (size == 1) {
-				V[i * (1 + 1) + i] = vec[i];
+				V[i * (vec.size() + 1) + i + 1] = vec[i];
 			}
 			for (int k = i + 1; k < i + size; ++k) {
-				V[i * (size + 1) + i + size] = (V[i * (size + 1) + i + k] + V[(i + k) * (size + 1) + i + size]) / 2;
+				V[i * (vec.size() + 1) + i + size] = (V[i * (vec.size() + 1) + k] + V[k * (vec.size() + 1) + i + size]) / 2;
+				V[i * (vec.size() + 1) + i + size] = std::max(V[i * (vec.size() + 1) + i + size], (V[i * (vec.size() + 1) + k] + V[k * (vec.size() + 1) + i + size]) / 2);
 			}
 		}
 	}
+	return V[(vec.size() + 1) + vec.size()];
+	
 }
-int main8452dfegrhj() {
+int main() {
 	int n;
 	std::cin >> n;
 	std::vector<int> A;
@@ -23,11 +26,7 @@ int main8452dfegrhj() {
 		std::cin >> a;
 		A.push_back(a);
 	}
-	std::vector<int> B;
-	for (int i = 0; i < A.size(); ++i) {
-		for (int j = 0; j < A.size(); ++j) {
-
-		}
-	}
+	int res = GetAverage(A);
+	std::cout << res;
 	return 0;
 }
