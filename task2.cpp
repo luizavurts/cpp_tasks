@@ -18,13 +18,7 @@ int main() {
         for (size_t previous_prefix_end = 0; previous_prefix_end < prefix_end; ++previous_prefix_end) {
             int new_summand = 1;
             for (size_t i = previous_prefix_end; i < prefix_end; ++i) {
-                new_summand *= digits[i];
-                if (new_summand > 100000) {
-                    break;
-                }
-            }
-            if (new_summand > 100000) {
-                continue;
+                new_summand = std::min(100000, new_summand * digits[i]);
             }
             prefix_minimums[prefix_end] = std::min(prefix_minimums[prefix_end], prefix_minimums[previous_prefix_end] + new_summand);
         }
