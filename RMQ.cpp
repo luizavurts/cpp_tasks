@@ -77,11 +77,11 @@ int main() {
 	}
 	int d;
 	std::cin >> d;
-	SegmentTree e(d);
 	for (int i = 0; i < d; ++i) {
 		int begin;
 		int end;
 		std::cin >> begin >> end;
+		SegmentTree e(end - begin);
 		for (int j = begin; j < end; ++j) {
 			std::cout << e.Max(begin, end);
 		}
