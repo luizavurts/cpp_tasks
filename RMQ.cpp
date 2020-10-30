@@ -1,55 +1,91 @@
-#include <iostream> 
 #include <vector>
 #include <algorithm>
-#include <tuple>
+#include <iostream>
 
 
-std::tuple<int, int> Maximum(std::vector<int> vec) {
-    std::sort(vec.begin(), vec.end());
-	int a = 0;
-	int count = 0;
-	for (int i = 0; i < vec.size(); ++i) {
-		if (vec[i] > a) {
-			a = vec[i];
-			count = i;
+class MaximumAndIndex {
+public:
+	int maximum;
+	int index;
+
+	MaximumAndIndex() : maximum(0), index(0) {}
+	bool operator<(const MaximumAndIndex& other) const {
+		return maximum < other.maximum;
+	}
+};
+
+
+class SegmentTree {
+public:
+	SegmentTree(size_t size) : tree(4 * size), size(size) {}
+
+	MaximumAndIndex Max(size_t begin, size_t end) {
+		return Max(begin, end, 1, 0, size);
+	}
+
+	MaximumAndIndex Max(size_t begin, size_t end, size_t node, size_t node_begin, size_t node_end) {
+		if (node_begin == begin && node_end == end) {
+			return tree[node];
+		}
+		size_t node_middle = (node_begin + node_end) / 2;
+		if (node_middle <= begin) {
+			return Max(begin, end, node * 2 + 1, node_middle, node_end);
+		}
+		else if (begin < node_middle && node_middle < end) {
+			return std::max(Max(begin, node_middle, node * 2, node_begin, node_middle),
+				Max(node_middle, end, node * 2 + 1, node_middle, node_end));
+		}
+		else {
+			return Max(begin, end, node * 2, node_begin, node_middle);
 		}
 	}
-	return std::tuple <int, int> (a, count);
-}
-std::tuple<int, int> FindMax(int l, int r, int L, int R, std::vector<int> vec) {
-	if (l == L && r == R) {
-	    return Maximum(vec);
+
+	void Update(size_t index, MaximumAndIndex value) {
+		Update(index, value, 1, 0, size);
 	}
-	int M = (L + R - 1) / 2;
-	int x = 0;
-	int c = 0;
-	if (l <= M) {
-		R = M;
-		std::tuple<int, int> x, c = FindMax(l, std::min(r, M), L, M, vec);
+
+	void Update(size_t index, MaximumAndIndex value, size_t node, size_t node_begin, size_t node_end) {
+		if (node_end - node_begin == 1) {
+			tree[node] = value;
+			return;
+		}
+		size_t node_middle = (node_begin + node_end) / 2;
+		if (index < node_middle) {
+			Update(index, value, node * 2, node_begin, node_middle);
+		}
+		else {
+			Update(index, value, node * 2 + 1, node_middle, node_end);
+		}
+		tree[node] = std::max(tree[node * 2], tree[node * 2 + 1]);
 	}
-	if (r > M) {
-		L = M + 1;
-		std::tuple<int, int> x, c = FindMax(std::max(l, M), r, M + 1, R, vec);
-	}
-	return std::tuple<int, int> (x, c);
-}
+private:
+	std::vector<MaximumAndIndex> tree;
+	size_t size;
+};
+
 int main() {
-	int N;
-	std::cin >> N;
-	std::vector<int> A;
-	for (int i = 0; i < N; ++i) {
+	int n;
+	std::cin >> n;
+	SegmentTree b(n);
+	for (int i = 0; i < n; ++i) {
 		int a;
 		std::cin >> a;
-		A.push_back(a);
+		MaximumAndIndex c;
+		c.index = i;
+		c.maximum = a;
+		b.Update(i, c);
 	}
-	int k;
-	std::cin >> k;
-	for (int i = 0; i < k; ++i) {
-		int l;
-		int r;
-		std::cin >> l >> r;
-		std::tuple<int, int> a = FindMax(l, r, 0, A.size(), A);
-		std::cout << std::get<0>(a) << " " << std::get<1>(a) << std::endl;
+	int d;
+	std::cin >> d;
+	SegmentTree e(d);
+	for (int i = 0; i < d; ++i) {
+		int begin;
+		int end;
+		std::cin >> begin >> end;
+		for (int j = begin; j < end; ++j) {
+			std::cout << e.Max(begin, end);
+		}
 	}
+
 	return 0;
 }
