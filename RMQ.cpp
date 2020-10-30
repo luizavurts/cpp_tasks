@@ -1,3 +1,4 @@
+
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -81,10 +82,7 @@ int main() {
 		int begin;
 		int end;
 		std::cin >> begin >> end;
-		SegmentTree e(end - begin);
-		for (int j = begin; j < end; ++j) {
-			std::cout << e.Max(begin, end);
-		}
+		std::cout << b.Max(begin, end);#######
 	}
 
 	return 0;
