@@ -82,7 +82,9 @@ int main() {
 		int begin;
 		int end;
 		std::cin >> begin >> end;
-		std::cout << b.Max(begin, end);#######
+		MaximumAndIndex g = b.Max(begin, end);
+		int x = g.index;
+		int y = g.maximum;
 	}
 
 	return 0;
