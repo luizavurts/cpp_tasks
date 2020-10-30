@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -82,9 +81,10 @@ int main() {
 		int begin;
 		int end;
 		std::cin >> begin >> end;
-		MaximumAndIndex g = b.Max(begin, end);
+		MaximumAndIndex g = b.Max(begin - 1, end);
 		int x = g.index;
 		int y = g.maximum;
+		std::cout << y << " " << x << std::endl;
 	}
 
 	return 0;
