@@ -84,7 +84,7 @@ int main() {
 		MaximumAndIndex g = b.Max(begin - 1, end);
 		int x = g.index;
 		int y = g.maximum;
-		std::cout << y << " " << x << std::endl;
+		std::cout << y << " " << x + 1 << std::endl;
 	}
 
 	return 0;
