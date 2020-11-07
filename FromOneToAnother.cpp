@@ -4,7 +4,7 @@
 
 std::string FromOneToAnother(std::string string_number) {
 	if (string_number.size() % 4 != 0) {
-		std::string string('0', (string_number.size() / 4) + 1 - string_number.size());
+		std::string string('0', ((string_number.size() / 4) + 1) * 4 - string_number.size());
 		string_number = string + string_number;
 	}
 	std::string s;
@@ -62,7 +62,7 @@ std::string FromOneToAnother(std::string string_number) {
 			s.push_back('F');
 		}
 	}
-    std::reverse(s.begin(), s.end());
+	std::reverse(s.begin(), s.end());
 	return s;
 }
 
