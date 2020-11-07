@@ -16,46 +16,46 @@ std::string FromOneToAnother(std::string string_number) {
 		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 0) {
 			s.push_back('0');
 		}
-		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 0) {
 			s.push_back('1');
 		}
-		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 0) {
 			s.push_back('2');
 		}
-		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 0) {
 			s.push_back('3');
 		}
-		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 0) {
 			s.push_back('4');
 		}
-		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 0) {
 			s.push_back('5');
 		}
 		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 0) {
 			s.push_back('6');
 		}
-		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 0) {
 			s.push_back('7');
 		}
-		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 1) {
 			s.push_back('8');
 		}
 		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 0 && string_number[d] == 1) {
 			s.push_back('9');
 		}
-		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 1) {
 			s.push_back('A');
 		}
-		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 1) {
 			s.push_back('B');
 		}
-		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 1) {
 			s.push_back('C');
 		}
-		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 0 && string_number[d] == 1) {
+		if (string_number[a] == 1 && string_number[b] == 0 && string_number[c] == 1 && string_number[d] == 1) {
 			s.push_back('D');
 		}
-		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 0) {
+		if (string_number[a] == 0 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 1) {
 			s.push_back('E');
 		}
 		if (string_number[a] == 1 && string_number[b] == 1 && string_number[c] == 1 && string_number[d] == 1) {
@@ -72,3 +72,4 @@ int main() {
 	std::cout << FromOneToAnother(string);
 	return 0;
 }
+	
