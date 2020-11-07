@@ -4,7 +4,7 @@
 
 std::string FromOneToAnother(std::string string_number) {
 	if (string_number.size() % 4 != 0) {
-		std::string string('0', ((string_number.size() / 4) + 1) * 4 - string_number.size());
+		std::string string(((string_number.size() / 4) + 1) * 4 - string_number.size(), '0');
 		string_number = string + string_number;
 	}
 	std::string s;
@@ -72,4 +72,3 @@ int main() {
 	std::cout << FromOneToAnother(string);
 	return 0;
 }
-	
