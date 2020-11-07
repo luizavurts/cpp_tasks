@@ -8,7 +8,7 @@ std::string FromOneToAnother(std::string string_number) {
 		string_number = string + string_number;
 	}
 	std::string s;
-	for (int i = string_number.size() - 1; i > 0; i -= 4) {
+	for (int i = string_number.size() - 1; i >= 0; i -= 4) {
 		int a = i;
 		int b = i - 1;
 		int c = i - 2;
