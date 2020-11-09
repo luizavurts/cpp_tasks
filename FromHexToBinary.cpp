@@ -102,6 +102,11 @@ std::string FromHexToBinary(std::string string) {
 			s.push_back('1');
 		}
 	}
+	while (s[s.size() - 1] == '0') {
+		if (s.size() > 1) {
+			s.pop_back();
+		}
+	}
 	std::reverse(s.begin(), s.end());
 	return s;
 }
