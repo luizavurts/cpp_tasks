@@ -9,8 +9,8 @@ int main() {
 		std::vector<int> a_vector;
 		std::vector<int> b_vector;
 		std::vector<int> m_vector;
-		std::vector<int> new_time_of_arrival(n, 0);
-		std::vector<int> new_time_of_departure(n, 0);
+		std::vector<int> new_time_of_arrival(n - 1, 0);
+		std::vector<int> new_time_of_departure(n - 1, 0);
 		for (int j = 0; j < n; ++j) {
 			int a, b;
 			std::cin >> a >> b;
