@@ -22,12 +22,14 @@ int main() {
 			std::cin >> m;
 			m_vector.push_back(m);
 		}
-
 		new_time_of_arrival[0] = a_vector[0] + m_vector[0];
 		new_time_of_departure[0] = new_time_of_arrival[0] + (b_vector[0] - a_vector[0] + 1) / 2;
 		for (int j = 1; j < a_vector.size(); ++j) {
 			new_time_of_arrival[j] = new_time_of_departure[j - 1] + m_vector[j] + a_vector[j] - b_vector[j - 1];
 			new_time_of_departure[j] = new_time_of_arrival[j] + (b_vector[j] - a_vector[j] + 1) / 2;
+			if (new_time_of_departure[j] < b_vector[j]) {
+				new_time_of_departure[j] = b_vector[j];
+			}
 		}
 		std::cout << new_time_of_arrival[n - 1] << std::endl;
 	}
