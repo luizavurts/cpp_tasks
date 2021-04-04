@@ -29,7 +29,7 @@ int main() {
 			new_time_of_arrival[j] = new_time_of_departure[j - 1] + m_vector[j] + a_vector[j] - b_vector[j - 1];
 			new_time_of_departure[j] = new_time_of_arrival[j] + (b_vector[j] - a_vector[j]) / 2 + 1;
 		}
-		std::cout << new_time_of_arrival[n] << std::endl;
+		std::cout << new_time_of_arrival[n - 1] << std::endl;
 	}
 	return 0;
 }
