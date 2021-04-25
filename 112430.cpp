@@ -28,7 +28,7 @@ int main() {
 	int maxy = 0;
 	for (int i = 0; i < y_vector.size(); ++i) {
 		if (abs(y_vector[i]) > abs(maxy)) {
-			maxy = y_vector[i];
+			maxy = abs(y_vector[i]);
 		}
 	}
 	int S = (maxx - minx) * maxy / 2;
