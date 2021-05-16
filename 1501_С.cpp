@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <algorithm>
-
+#include <utility>
 int main() {
 	int n;
 	std::cin >> n;
@@ -15,13 +15,14 @@ int main() {
 	std::sort(numbers.begin(), numbers.end());
 	std::unordered_map<int, std::pair<int, int>> map;
 	for (int i = 0; i < n; ++i) {
-		for (int j = 1; j < n; ++j) {
-			if (map.count(numbers[i] - numbers[j])) {
-				std::cout << numbers[i]  << numbers[j]  << map[numbers[i] - numbers[j]] << std::endl;
-				return;
+		for (int j = i + 1; j < n; ++j) {
+			if (map.count(numbers[j] - numbers[i])) {
+				std::cout << i + 1 << j + 1  << std::get<0>(map[numbers[j] - numbers[i]]) + 1
+					<< std::get<1>(map[numbers[j] - numbers[i]] ) + 1 << std::endl;
+				return 0;
 			}
 			else {
-				map[numbers[i] - numbers[j]] = { numbers[i], numbers[j] };
+				map[numbers[j] - numbers[i]] = { i, j };
 
 			}
 		}
