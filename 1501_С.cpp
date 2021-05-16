@@ -13,14 +13,14 @@ int main() {
 		numbers.push_back(a);
 	}
 	std::sort(numbers.begin(), numbers.end());
-	std::unordered_map<int, std::pair<int, int>> map(n);
-	for (int i = numbers[0]; i < numbers[n]; ++i) {
-		for (int j = numbers[1]; j < numbers[n]; ++j) {
-			if (map.count(i - j)) {
-				std::cout << i, j, map[i - j];
+	std::unordered_map<int, std::pair<int, int>> map;
+	for (int i = 0; i < n; ++i) {
+		for (int j = 1; j < n; ++j) {
+			if (map.count(numbers[i] - numbers[j])) {
+				std::cout << numbers[i], numbers[j], map[numbers[i] - numbers[j]];
 			}
 			else {
-				map[i - j] = { i, j };
+				map[numbers[i] - numbers[j]] = { numbers[i], numbers[j] };
 
 			}
 		}
