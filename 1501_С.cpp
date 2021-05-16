@@ -17,7 +17,8 @@ int main() {
 	for (int i = 0; i < n; ++i) {
 		for (int j = 1; j < n; ++j) {
 			if (map.count(numbers[i] - numbers[j])) {
-				std::cout << numbers[i], numbers[j], map[numbers[i] - numbers[j]];
+				std::cout << numbers[i]  << numbers[j]  << map[numbers[i] - numbers[j]] << std::endl;
+				return;
 			}
 			else {
 				map[numbers[i] - numbers[j]] = { numbers[i], numbers[j] };
