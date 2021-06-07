@@ -15,6 +15,7 @@ int main() {
 			massive.push_back(a);
 		}
 		int sum = 0;
+		int k = 0;
 		std::sort(massive.begin(), massive.end());
 		for (int j = 0;j < n; ++j) {
 			if (massive[j] + sum == x && massive[n - 1] > massive[j]) {
@@ -30,21 +31,24 @@ int main() {
 				sum += massive[j];
 			}
 			else if (massive[j] + sum == x && massive[n - 1] == massive[j] && massive[0] == massive[j]) {
-				std::cout << "No";
+				k = 1;
 				break;
 			}
 			else {
 				sum += massive[j];
 			}
 		}
-		if (sum == x) {
-			std::cout << "No";
-			break;
+		if (sum == x || k == 1) {
+			std::cout << "No" << std::endl;
+			
 		}
-		std::cout << "Yes" << " ";
-		for (int j = 0; j < n; ++j) {
-			std::cout << massive[j] << " ";
+		else {
+			std::cout << "Yes" << " " << std::endl;
+			for (int j = 0; j < n; ++j) {
+				std::cout << massive[j] << " ";
+			}
 		}
+		
 	}
 	return 0;
 }
